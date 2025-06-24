@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас | ЛИСТОВОЗ</title>
+    <meta name="description" content="Информация о книжном магазине ЛИСТОВОЗ в Волгограде. Наша история, миссия и преимущества.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1e40af",
+                        secondary: "#1e3a8a",
+                        accent: "#f59e0b"
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://play-lh.googleusercontent.com/BLAhV0uvyDcz9WTB_8Z2g_FS3-JO0bv4RqN2lYeK9dYRgNiIIxjD2nRnuYQ9pxM801Ca=w240-h480" alt="Логотип ЛИСТОВОЗ" class="h-10 mr-3">
+                    <a href="index (2).html" class="text-xl font-bold text-primary">ЛИСТОВОЗ</a>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="index (2).html" class="text-gray-700 hover:text-accent transition">Главная</a></li>
+                        <li><a href="catalog (2).html" class="text-gray-700 hover:text-accent transition">Каталог</a></li>
+                        <li><a href="delivery.html" class="text-gray-700 hover:text-accent transition">Доставка</a></li>
+                        <li><a href="about.html" class="text-primary font-medium hover:text-accent transition">О нас</a></li>
+                        <li><a href="contacts.html" class="text-gray-700 hover:text-accent transition">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+78003335533" class="text-gray-700 hover:text-accent">
+                        <i class="fas fa-phone-alt mr-1"></i>
+                        <span class="hidden md:inline">8 (800) 333-55-33</span>
+                    </a>
+                    <button class="md:hidden text-gray-700 mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Content -->
+    <main class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-3xl font-bold mb-6">О книжном магазине ЛИСТОВОЗ</h1>
+                
+                <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                    <div class="flex flex-col md:flex-row items-center mb-6">
+                        <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+                            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Наш магазин" class="rounded-lg w-full">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h2 class="text-2xl font-semibold mb-4 text-primary">Наша история</h2>
+                            <p class="text-gray-700 mb-4">ЛИСТОВОЗ начал свою работу в 2010 году как небольшой книжный магазин в центре Волгограда.</p>
+                            <p class="text-gray-700">За годы работы мы выросли в крупный книжный центр с собственной службой доставки по всему городу. Наш девиз: "Доставляем знания прямо к вам!"</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-semibold mb-4 text-primary">Наша миссия</h2>
+                    <p class="text-gray-700 mb-6">Мы стремимся сделать чтение доступным и удобным для каждого жителя Волгограда. Наша цель - не просто продавать книги, а помогать людям находить именно те произведения, которые сделают их жизнь интереснее и богаче.</p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <div class="text-accent text-4xl mb-3">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">10 000+ книг</h3>
+                            <p class="text-gray-600 text-sm">В нашем каталоге представлено более 10 тысяч наименований</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <div class="text-accent text-4xl mb-3">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">15 000 клиентов</h3>
+                            <p class="text-gray-600 text-sm">Более 15 тысяч довольных покупателей ежегодно</p>
+                        </div>
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <div class="text-accent text-4xl mb-3">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Быстрая доставка</h3>
+                            <p class="text-gray-600 text-sm">Доставляем книги в день заказа по всему Волгограду</p>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-semibold mb-4 text-primary">Наши преимущества</h2>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span class="text-gray-700">Широкий ассортимент книг всех жанров</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span class="text-gray-700">Профессиональные консультанты, которые помогут с выбором</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span class="text-gray-700">Быстрая доставка по всему Волгограду</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span class="text-gray-700">Гибкая система скидок для постоянных клиентов</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                            <span class="text-gray-700">Удобное расположение магазина в центре города</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm p-6">
+                    <h2 class="text-2xl font-semibold mb-4 text-primary">Наша команда</h2>
+                    <p class="text-gray-700 mb-6">ЛИСТОВОЗ - это команда профессионалов, которые искренне любят книги и готовы помочь каждому клиенту найти именно то, что ему нужно.</p>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Сотрудник" class="w-24 h-24 rounded-full mx-auto mb-2">
+                            <h3 class="font-semibold">Анна</h3>
+                            <p class="text-sm text-gray-600">Менеджер по закупкам</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Сотрудник" class="w-24 h-24 rounded-full mx-auto mb-2">
+                            <h3 class="font-semibold">Дмитрий</h3>
+                            <p class="text-sm text-gray-600">Курьер</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="Сотрудник" class="w-24 h-24 rounded-full mx-auto mb-2">
+                            <h3 class="font-semibold">Елена</h3>
+                            <p class="text-sm text-gray-600">Продавец-консультант</p>
+                        </div>
+                        <div class="text-center">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Сотрудник" class="w-24 h-24 rounded-full mx-auto mb-2">
+                            <h3 class="font-semibold">Иван</h3>
+                            <p class="text-sm text-gray-600">Администратор</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ЛИСТОВОЗ</h3>
+                    <p class="text-gray-400">Продажа и доставка книг по Волгограду</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Меню</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index (2).html" class="text-gray-400 hover:text-white transition">Главная</a></li>
+                        <li><a href="catalog (2).html" class="text-gray-400 hover:text-white transition">Каталог</a></li>
+                        <li><a href="delivery.html" class="text-gray-400 hover:text-white transition">Доставка</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">О нас</a></li>
+                        <li><a href="contacts.html" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Контакты</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
+                            <span>г. Волгоград, ул. Книжная, 15</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mr-2 mt-1"></i>
+                            <span>8 (800) 333-55-33</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mr-2 mt-1"></i>
+                            <span>info@listovoz.ru</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Мы в соцсетях</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2023 ЛИСТОВОЗ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'hidden fixed inset-0 bg-white z-50 p-4';
+            mobileMenu.innerHTML = `
+                <div class="flex justify-between items-center mb-8">
+                    <div class="flex items-center">
+                        <img src="https://play-lh.googleusercontent.com/BLAhV0uvyDcz9WTB_8Z2g_FS3-JO0bv4RqN2lYeK9dYRgNiIIxjD2nRnuYQ9pxM801Ca=w240-h480" alt="Логотип ЛИСТОВОЗ" class="h-10 mr-3">
+                        <h1 class="text-xl font-bold text-primary">ЛИСТОВОЗ</h1>
+                    </div>
+                    <button class="text-gray-700 close-mobile-menu">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <nav>
+                    <ul class="space-y-4">
+                        <li><a href="index (2).html" class="block text-lg text-gray-700 hover:text-accent transition">Главная</a></li>
+                        <li><a href="catalog (2).html" class="block text-lg text-gray-700 hover:text-accent transition">Каталог</a></li>
+                        <li><a href="delivery.html" class="block text-lg text-gray-700 hover:text-accent transition">Доставка</a></li>
+                        <li><a href="about.html" class="block text-lg text-primary hover:text-accent transition">О нас</a></li>
+                        <li><a href="contacts.html" class="block text-lg text-gray-700 hover:text-accent transition">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="mt-8">
+                    <a href="tel:+78003335533" class="block text-lg text-gray-700 hover:text-accent mb-4">
+                        <i class="fas fa-phone-alt mr-2"></i>8 (800) 333-55-33
+                    </a>
+                </div>
+            `;
+            document.body.appendChild(mobileMenu);
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+            });
+
+            document.querySelector('.close-mobile-menu').addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

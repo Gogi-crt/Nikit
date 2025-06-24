@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог книг | ЛИСТОВОЗ</title>
+    <meta name="description" content="Каталог книг магазина ЛИСТОВОЗ. Широкий выбор литературы всех жанров с доставкой по Волгограду.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <img src="https://play-lh.googleusercontent.com/BLAhV0uvyDcz9WTB_8Z2g_FS3-JO0bv4RqN2lYeK9dYRgNiIIxjD2nRnuYQ9pxM801Ca=w240-h480" alt="Логотип ЛИСТОВОЗ" class="h-10 mr-3">
+                    <a href="index.html" class="text-xl font-bold text-primary">ЛИСТОВОЗ</a>
+                </div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="index (2).html" class="text-gray-700 hover:text-accent transition">Главная</a></li>
+                        <li><a href="catalog (2).html" class="text-primary font-medium hover:text-accent transition">Каталог</a></li>
+                        <li><a href="delivery.html" class="text-gray-700 hover:text-accent transition">Доставка</a></li>
+                        <li><a href="about.html" class="text-gray-700 hover:text-accent transition">О нас</a></li>
+                        <li><a href="contacts.html" class="text-gray-700 hover:text-accent transition">Контакты</a></li>
+                    </ul>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <a href="tel:+78003335533" class="text-gray-700 hover:text-accent">
+                        <i class="fas fa-phone-alt mr-1"></i>
+                        <span class="hidden md:inline">8 (800) 333-55-33</span>
+                    </a>
+                    <button class="md:hidden text-gray-700 mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Content -->
+    <main class="py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <!-- Filters -->
+                <aside class="md:w-1/4 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-white p-6 rounded-lg shadow-sm sticky top-4">
+                        <h3 class="font-bold text-lg mb-4">Фильтры</h3>
+                        
+                        <!-- Categories -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">Категории</h4>
+                            <ul class="space-y-2">
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary rounded mr-2" checked>
+                                        <span>Художественная литература</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary rounded mr-2" checked>
+                                        <span>Детские книги</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary rounded mr-2" checked>
+                                        <span>Наука и образование</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary rounded mr-2" checked>
+                                        <span>Бизнес и экономика</span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="form-checkbox text-primary rounded mr-2" checked>
+                                        <span>Психология</span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Price Range -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">Цена</h4>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <input type="number" placeholder="От" class="border rounded px-2 py-1 w-full" id="minPrice">
+                                <span>-</span>
+                                <input type="number" placeholder="До" class="border rounded px-2 py-1 w-full" id="maxPrice">
+                            </div>
+                        </div>
+                        
+                        <!-- Availability -->
+                        <div class="mb-6">
+                            <h4 class="font-semibold mb-3">Наличие</h4>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="form-checkbox text-primary rounded mr-2" checked id="inStock">
+                                <span>В наличии</span>
+                            </label>
+                        </div>
+                        
+                        <button class="w-full bg-primary hover:bg-secondary text-white py-2 px-4 rounded transition" id="applyFilters">Применить фильтры</button>
+                    </div>
+                </aside>
+                
+                <!-- Books Grid -->
+                <div class="md:w-3/4">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Каталог книг</h2>
+                        <div class="flex items-center">
+                            <span class="mr-2">Сортировка:</span>
+                            <select class="border rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-accent" id="sortBy">
+                                <option value="popular">По популярности</option>
+                                <option value="price-asc">По цене (возрастание)</option>
+                                <option value="price-desc">По цене (убывание)</option>
+                                <option value="newest">По новизне</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="booksGrid">
+                        <!-- Book items will be generated here by JavaScript -->
+                    </div>
+                    
+                    <!-- Pagination -->
+                    <div class="mt-8 flex justify-center">
+                        <nav class="flex items-center space-x-2">
+                            <button class="px-3 py-1 rounded border hover:bg-gray-100 transition" id="prevPage">&laquo;</button>
+                            <button class="px-3 py-1 rounded border bg-primary text-white page-btn" data-page="1">1</button>
+                            <button class="px-3 py-1 rounded border hover:bg-gray-100 transition page-btn" data-page="2">2</button>
+                            <button class="px-3 py-1 rounded border hover:bg-gray-100 transition page-btn" data-page="3">3</button>
+                            <button class="px-3 py-1 rounded border hover:bg-gray-100 transition" id="nextPage">&raquo;</button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ЛИСТОВОЗ</h3>
+                    <p class="text-gray-400">Продажа и доставка книг по Волгограду</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Меню</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index (2).html" class="text-gray-400 hover:text-white transition">Главная</a></li>
+                        <li><a href="catalog (2).html" class="text-gray-400 hover:text-white transition">Каталог</a></li>
+                        <li><a href="delivery.html" class="text-gray-400 hover:text-white transition">Доставка</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">О нас</a></li>
+                        <li><a href="contacts.html" class="text-gray-400 hover:text-white transition">Контакты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Контакты</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
+                            <span>г. Волгоград, ул. Книжная, 15</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mr-2 mt-1"></i>
+                            <span>8 (800) 123-45-67</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mr-2 mt-1"></i>
+                            <span>info@listovoz.ru</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Мы в соцсетях</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition text-xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>© 2023 ЛИСТОВОЗ. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Book data
+        const books = [
+            {
+                id: 1,
+                title: "Мастер и Маргарита",
+                author: "Михаил Булгаков",
+                price: 450,
+                category: "Художественная литература",
+                image: "https://cdn1.ozone.ru/s3/multimedia-o/6690808176.jpg",
+                inStock: true,
+                rating: 4.8,
+                dateAdded: "2023-01-15"
+            },
+            {
+                id: 2,
+                title: "1984",
+                author: "Джордж Оруэлл",
+                price: 520,
+                category: "Художественная литература",
+                image: "https://cdn1.ozone.ru/s3/multimedia-1-j/7290166663.jpg",
+                inStock: true,
+                rating: 4.7,
+                dateAdded: "2023-02-20"
+            },
+            {
+                id: 3,
+                title: "Преступление и наказание",
+                author: "Ф.М. Достоевский",
+                price: 380,
+                category: "Художественная литература",
+                image: "https://cdn1.ozone.ru/s3/multimedia-l/6136076025.jpg",
+                inStock: true,
+                rating: 4.6,
+                dateAdded: "2023-01-05"
+            },
+            {
+                id: 4,
+                title: "Три товарища",
+                author: "Эрих Мария Ремарк",
+                price: 490,
+                category: "Художественная литература",
+                image: "https://cdn1.ozone.ru/s3/multimedia-h/6309350141.jpg",
+                inStock: true,
+                rating: 4.5,
+                dateAdded: "2023-03-10"
+            },
+            {
+                id: 5,
+                title: "Маленький принц",
+                author: "Антуан де Сент-Экзюпери",
+                price: 320,
+                category: "Детские книги",
+                image: "https://cdn1.ozone.ru/s3/multimedia-p/6711107245.jpg",
+                inStock: true,
+                rating: 4.9,
+                dateAdded: "2023-02-15"
+            },
+            {
+                id: 6,
+                title: "Гарри Поттер и философский камень",
+                author: "Дж. К. Роулинг",
+                price: 550,
+                category: "Детские книги",
+                image: "https://avatars.mds.yandex.net/i?id=13db1199e1b2e137ef9e7cc670993500_l-5115981-images-thumbs&n=13",
+                inStock: true,
+                rating: 4.8,
+                dateAdded: "2023-03-01"
+            },
+            {
+                id: 7,
+                title: "Краткая история времени",
+                author: "Стивен Хокинг",
+                price: 620,
+                category: "Наука и образование",
+                image: "https://cdn1.ozone.ru/s3/multimedia-q/6811556066.jpg",
+                inStock: false,
+                rating: 4.4,
+                dateAdded: "2023-01-20"
+            },
+            {
+                id: 8,
+                title: "Богатый папа, бедный папа",
+                author: "Роберт Кийосаки",
+                price: 480,
+                category: "Бизнес и экономика",
+                image: "https://cdn1.ozone.ru/s3/multimedia-1-y/c600/7207628182.jpg",
+                inStock: true,
+                rating: 4.3,
+                dateAdded: "2023-02-25"
+            },
+            {
+                id: 9,
+                title: "7 навыков высокоэффективных людей",
+                author: "Стивен Кови",
+                price: 540,
+                category: "Психология",
+                image: "https://cdn1.ozone.ru/s3/multimedia-1-w/7327806836.jpg",
+                inStock: true,
+                rating: 4.5,
+                dateAdded: "2023-03-05"
+            },
+            {
+                id: 10,
+                title: "Война и мир",
+                author: "Лев Толстой",
+                price: 580,
+                category: "Художественная литература",
+                image: "https://cdn1.ozone.ru/s3/multimedia-1-y/7328612434.jpg",
+                inStock: true,
+                rating: 4.7,
+                dateAdded: "2023-01-10"
+            },
+            {
+                id: 11,
+                title: "Атлант расправил плечи",
+                author: "Айн Рэнд",
+                price: 670,
+                category: "Художественная литература",
+                image: "https://resources.cdn-kaspi.kz/img/m/p/h98/ha6/85432032296990.jpg?format=gallery-large",
+                inStock: true,
+                rating: 4.2,
+                dateAdded: "2023-02-18"
+            },
+            {
+                id: 12,
+                title: "Психология влияния",
+                author: "Роберт Чалдини",
+                price: 430,
+                category: "Психология",
+                image: "https://cdn1.ozone.ru/s3/multimedia-j/6597705547.jpg",
+                inStock: true,
+                rating: 4.6,
+                dateAdded: "2023-03-15"
+            },
+            {
+                id: 13,
+                title: "Над пропастью во ржи",
+                author: "Джером Сэлинджер",
+                price: 380,
+                category: "Художественная литература",
+                image: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1432985584i/25630601.jpg",
+                inStock: true,
+                rating: 4.7,
+                dateAdded: "2023-03-15"
+            },
+            {
+                id: 14,
+                title: "Тихий Дон",
+                author: "Михаил Шолохов",
+                price: 720,
+                category: "Художественная литература",
+                image: "https://biblio.by/media/catalog/product/cache/1/image/1200x1200/85e4522595efc69f496374d01ef2bf13/9/7/9785170652129--.jpg",
+                inStock: true,
+                rating: 4.8,
+                dateAdded: "2023-03-15"
+            },
+            {
+                id: 15,
+                title: "Собор Парижской Богоматери",
+                author: "Виктор Мари Гюго",
+                price: 470,
+                category: "Художественная литература",
+                image: "https://goods-photos.static1-sima-land.com/items/6969468/0/1600.jpg?v=1662448549",
+                inStock: true,
+                rating: 4.7,
+                dateAdded: "2023-03-15"
+            },
+            {
+                id: 16,
+                title: "Евгений Онегин",
+                author: "Александр Сергеевич Пушкин",
+                price: 360,
+                category: "Художественная литература",
+                image: "https://main-cdn.sbermegamarket.ru/big2/hlr-system/1517622/100023053219b0.jpg",
+                inStock: true,
+                rating: 4.4,
+                dateAdded: "2023-03-15"
+            },
+            {
+                id: 17,
+                title: "Ромео и Джульетта",
+                author: "Уильям Шекспир",
+                price: 490,
+                category: "Художественная литература",
+                image: "https://avatars.mds.yandex.net/get-mpic/5272727/img_id353052860126104504.jpeg/orig",
+                inStock: true,
+                rating: 4.9,
+                dateAdded: "2023-03-15"
+            },
+            {
+                id: 18,
+                title: "Сто лет одиночества",
+                author: "Маркес Габриэль Гарсиа",
+                price: 660,
+                category: "Художественная литература",
+                image: "https://avatars.mds.yandex.net/i?id=f99aa4726dff80a9e231776550013ded_l-10235574-images-thumbs&n=13",
+                inStock: true,
+                rating: 4.8,
+                dateAdded: "2023-02-25"
+            }
+        ];
+
+        // Current page state
+        let currentPage = 1;
+        const booksPerPage = 6;
+        let filteredBooks = [...books];
+
+        // DOM elements
+        const booksGrid = document.getElementById('booksGrid');
+        const applyFiltersBtn = document.getElementById('applyFilters');
+        const sortBy = document.getElementById('sortBy');
+        const prevPageBtn = document.getElementById('prevPage');
+        const nextPageBtn = document.getElementById('nextPage');
+        const pageBtns = document.querySelectorAll('.page-btn');
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderBooks();
+            setupEventListeners();
+        });
+
+        // Render books based on current filters and page
+        function renderBooks() {
+            // Clear the grid
+            booksGrid.innerHTML = '';
+
+            // Calculate pagination
+            const startIndex = (currentPage - 1) * booksPerPage;
+            const endIndex = startIndex + booksPerPage;
+            const booksToShow = filteredBooks.slice(startIndex, endIndex);
+
+            // Render each book
+            booksToShow.forEach(book => {
+                const bookCard = document.createElement('div');
+                bookCard.className = 'bg-white rounded-lg shadow-sm overflow-hidden book-card transition duration-300';
+                bookCard.innerHTML = `
+                    <img src="${book.image}" alt="Обложка книги ${book.title}" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-1">${book.title}</h3>
+                        <p class="text-gray-600 text-sm mb-2">${book.author}</p>
+                        <div class="flex items-center mb-2">
+                            ${renderRatingStars(book.rating)}
+                            <span class="text-xs text-gray-500 ml-1">(${book.rating})</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-primary">${book.price} ₽</span>
+                            <button class="bg-primary hover:bg-secondary text-white text-sm py-1 px-3 rounded transition add-to-cart" data-id="${book.id}">
+                                ${book.inStock ? 'В корзину' : 'Нет в наличии'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                booksGrid.appendChild(bookCard);
+            });
+
+            // Update pagination buttons
+            updatePagination();
+        }
+
+        // Render rating stars
+        function renderRatingStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            let stars = '';
+
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    stars += '<i class="fas fa-star text-yellow-400 text-xs"></i>';
+                } else if (i === fullStars + 1 && hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt text-yellow-400 text-xs"></i>';
+                } else {
+                    stars += '<i class="far fa-star text-yellow-400 text-xs"></i>';
+                }
+            }
+
+            return stars;
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const minPrice = document.getElementById('minPrice').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            const inStockOnly = document.getElementById('inStock').checked;
+            const selectedCategories = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                .map(checkbox => checkbox.nextElementSibling.textContent.trim());
+
+            filteredBooks = books.filter(book => {
+                // Filter by price
+                if (minPrice && book.price < parseInt(minPrice)) return false;
+                if (maxPrice && book.price > parseInt(maxPrice)) return false;
+
+                // Filter by stock
+                if (inStockOnly && !book.inStock) return false;
+
+                // Filter by category
+                if (selectedCategories.length > 0 && !selectedCategories.includes(book.category)) return false;
+
+                return true;
+            });
+
+            // Sort books
+            sortBooks();
+
+            // Reset to first page
+            currentPage = 1;
+            renderBooks();
+        }
+
+        // Sort books
+        function sortBooks() {
+            const sortValue = sortBy.value;
+
+            switch (sortValue) {
+                case 'price-asc':
+                    filteredBooks.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-desc':
+                    filteredBooks.sort((a, b) => b.price - a.price);
+                    break;
+                case 'newest':
+                    filteredBooks.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+                    break;
+                case 'popular':
+                default:
+                    filteredBooks.sort((a, b) => b.rating - a.rating);
+                    break;
+            }
+        }
+
+        // Update pagination buttons
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+
+            // Disable/enable prev/next buttons
+            prevPageBtn.disabled = currentPage === 1;
+            nextPageBtn.disabled = currentPage === totalPages;
+
+            // Update page buttons
+            pageBtns.forEach(btn => {
+                const pageNum = parseInt(btn.dataset.page);
+                btn.classList.toggle('bg-primary', pageNum === currentPage);
+                btn.classList.toggle('text-white', pageNum === currentPage);
+                btn.disabled = pageNum > totalPages;
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Apply filters button
+            applyFiltersBtn.addEventListener('click', applyFilters);
+
+            // Sort dropdown
+            sortBy.addEventListener('change', () => {
+                sortBooks();
+                renderBooks();
+            });
+
+            // Pagination buttons
+            prevPageBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderBooks();
+                }
+            });
+
+            nextPageBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredBooks.length / booksPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderBooks();
+                }
+            });
+
+            // Page number buttons
+            pageBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentPage = parseInt(btn.dataset.page);
+                    renderBooks();
+                });
+            });
+
+            // Add to cart buttons (delegated event)
+            booksGrid.addEventListener('click', (e) => {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const bookId = parseInt(e.target.dataset.id);
+                    const book = books.find(b => b.id === bookId);
+                    if (book && book.inStock) {
+                        alert(`Книга "${book.title}" добавлена в корзину!`);
+                        // Here you would typically add to cart logic
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
